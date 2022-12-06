@@ -14,10 +14,14 @@ public class OrganizationController implements OrganizationAPIs{
 
 	@Override
 	public OrganizationDTO createOrganization(OrganizationDTO organizationToCreate) {
-		if(organizationToCreate == null || StringUtils.isBlank(organizationToCreate.getName())) {
+		if(isNotValidOrganizationDTO(organizationToCreate)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		organizationToCreate.setId(UUID.randomUUID());
 		return organizationToCreate;
+	}
+
+	private boolean isNotValidOrganizationDTO(OrganizationDTO organizationToCreate) {
+		return organizationToCreate == null || StringUtils.isBlank(organizationToCreate.getName());
 	}
 }

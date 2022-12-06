@@ -23,6 +23,7 @@ class OrganizationControllerTest {
 		// Arrange
 		// Fill in the details for an organization with no Name
 		OrganizationDTO organizationToCreate = new OrganizationDTO();
+		organizationToCreate.setName("");
 
 		// Act
 		// Call create organization
