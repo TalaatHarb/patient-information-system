@@ -8,4 +8,6 @@ import lombok.Data;
 public class OrganizationDTO {
 
 	private UUID id;
+	
+	private String name;
 }
