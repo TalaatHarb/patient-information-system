@@ -17,7 +17,6 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<maven-pmd-plugin.version>3.19.0</maven-pmd-plugin.version>
-		<maven-apache-plugins.version>3.8.1</maven-apache-plugins.version>
 		<maven-site-plugin.version>4.0.0-M3</maven-site-plugin.version>
 		<dependency-check-maven.version>7.2.1</dependency-check-maven.version>
 		<impsort-maven-plugin.version>1.7.0</impsort-maven-plugin.version>
@@ -101,7 +100,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
@@ -125,12 +123,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${maven-apache-plugins.version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>${maven-apache-plugins.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -204,6 +200,7 @@
 						<exclude>META-INF/**</exclude>
 						<exclude>net/talaatharb/**/*Application.*</exclude>
 						<exclude>**/config/*</exclude>
+						<exclude>**/dtos/*</exclude>
 					</excludes>
 				</configuration>
 				<executions>
