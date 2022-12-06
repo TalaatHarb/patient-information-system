@@ -20,6 +20,7 @@ class OrganizationAPIIT extends AbstractAPIIT{
 		// Arrange
 		// Organization details
 		OrganizationDTO inputOrganizationDto = new OrganizationDTO();
+		inputOrganizationDto.setName("Test organization");
 
 		// Act
 		// Call the API for creating organization
