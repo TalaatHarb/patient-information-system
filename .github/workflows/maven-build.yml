@@ -2,7 +2,8 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ * ]
+    branches:
+      - '**'
     paths:
       - 'patient-information-backend/**'
       - '.github/workflows/maven-build.yml'
