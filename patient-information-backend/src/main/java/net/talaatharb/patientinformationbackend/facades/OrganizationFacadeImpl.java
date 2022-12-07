@@ -27,7 +27,8 @@ public class OrganizationFacadeImpl implements OrganizationFacade {
 
 	@Override
 	public Page<OrganizationDTO> getOrganizations(Pageable pageable) {
-		return Page.empty();
+		Page<Organization> organizationPage = organizationService.getOrganizations(pageable);
+		return organizationMapper.fromEntityToDTO(organizationPage);
 	}
 
 }

@@ -52,6 +52,7 @@ class OrganizationAPIIT extends AbstractAPIIT {
 
 		// Assert
 		// Get is successful
-		result.andExpect(status().isOk()); // status
+		result.andExpect(status().isOk()) // status
+				.andExpect(jsonPath("$['pageable']['paged']").value("true")); // Pagination
 	}
 }

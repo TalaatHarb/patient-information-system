@@ -8,6 +8,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import net.talaatharb.patientinformationbackend.dtos.OrganizationDTO;
 import net.talaatharb.patientinformationbackend.entities.Organization;
@@ -47,6 +50,24 @@ class OrganizationFacadeImplTest {
 		verify(organizationMapper).fromDTOToEntity(organizationToCreate);
 		verify(organizationService).createOrganization(mappedOrganization);
 		verify(organizationMapper).fromEntityToDTO(createdOrganizatoin);
+	}
+	
+	@Test
+	void testGetOrganizationsCallsServiceAndMapper() {
+		// Arrange
+		int page = 0;
+		int size = 10;
+		Pageable pageable = PageRequest.of(page, size);
+		
+		Page<Organization> organizationPage = Page.empty();
+		when(organizationService.getOrganizations(pageable)).thenReturn(organizationPage);
+		
+		// Act
+		organizationFacade.getOrganizations(pageable);
+		
+		// Assert
+		verify(organizationService).getOrganizations(pageable);
+		verify(organizationMapper).fromEntityToDTO(organizationPage);
 	}
 
 }
