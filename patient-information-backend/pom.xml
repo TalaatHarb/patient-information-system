@@ -91,9 +91,8 @@
 			<version>${springdoc.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Final</version>
 		</dependency>
 	</dependencies>
 
@@ -193,9 +192,11 @@
 				<artifactId>dependency-check-maven</artifactId>
 				<version>${dependency-check-maven.version}</version>
 				<configuration>
-					<failBuildOnCVSS>10</failBuildOnCVSS>
+					<failBuildOnCVSS>7.0</failBuildOnCVSS>
 					<assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
 					<failOnError>true</failOnError>
+					<suppressionFile>dependency-check-suppression.xml</suppressionFile>
+                    <skipTestScope>true</skipTestScope>
 				</configuration>
 				<executions>
 					<execution>

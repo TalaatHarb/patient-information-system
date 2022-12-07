@@ -10,6 +10,11 @@ spring:
   jpa:
     open-in-view: false
     database: default
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
     hibernate:
       ddl-auto: update
   datasource:
