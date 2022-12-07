@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import net.talaatharb.patientinformationbackend.dtos.OrganizationDTO;
 
-class OrganizationAPIIT extends AbstractAPIIT{
+class OrganizationAPIIT extends AbstractAPIIT {
 
 	@Test
 	void testCreateOrganization() throws JsonProcessingException, Exception {
@@ -29,8 +29,11 @@ class OrganizationAPIIT extends AbstractAPIIT{
 						.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON));
 
 		// Assert
-		// Creation is successful and the created organization information is sent back with correct information
-		result.andExpect(status().isCreated()).andExpect(jsonPath("$.id", notNullValue()));
-
+		// Creation is successful and the created organization information is sent back
+		// with correct information
+		result.andExpect(status().isCreated()) // status
+				.andExpect(jsonPath("$.id", notNullValue())) // id set
+				.andExpect(jsonPath("$.creationDate", notNullValue())) // creation date
+				.andExpect(jsonPath("$.updateDate", notNullValue())); // update date
 	}
 }
