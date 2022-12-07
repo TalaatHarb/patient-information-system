@@ -1,6 +1,7 @@
 package net.talaatharb.patientinformationbackend.api;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,5 +36,22 @@ class OrganizationAPIIT extends AbstractAPIIT {
 				.andExpect(jsonPath("$.id", notNullValue())) // id set
 				.andExpect(jsonPath("$.creationDate", notNullValue())) // creation date
 				.andExpect(jsonPath("$.updateDate", notNullValue())); // update date
+	}
+
+	@Test
+	void testGetOrganizations() throws Exception {
+		// Arrange
+		// Page details
+		String page = "0";
+		String size = "10";
+
+		// Act
+		// Call the API for getting page of organizations
+		ResultActions result = mockMVC.perform(get("/api/v1/organizations").param("page", page).param("size", size)
+				.accept(MediaType.APPLICATION_JSON));
+
+		// Assert
+		// Get is successful
+		result.andExpect(status().isOk()); // status
 	}
 }

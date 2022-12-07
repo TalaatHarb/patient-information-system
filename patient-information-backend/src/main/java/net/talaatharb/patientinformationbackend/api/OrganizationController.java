@@ -1,5 +1,7 @@
 package net.talaatharb.patientinformationbackend.api;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,5 +27,10 @@ public class OrganizationController implements OrganizationAPIs {
 
 	private boolean isNotValidOrganizationDTO(OrganizationDTO organizationToCreate) {
 		return organizationToCreate == null || StringUtils.isBlank(organizationToCreate.getName());
+	}
+
+	@Override
+	public Page<OrganizationDTO> getOrganizations(Pageable pageable) {
+		return Page.empty();
 	}
 }
