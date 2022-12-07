@@ -31,6 +31,6 @@ public class OrganizationController implements OrganizationAPIs {
 
 	@Override
 	public Page<OrganizationDTO> getOrganizations(Pageable pageable) {
-		return Page.empty();
+		return organizationFacade.getOrganizations(pageable);
 	}
 }
