@@ -1,7 +1,5 @@
 package net.talaatharb.patientinformationbackend.services;
 
-import java.util.UUID;
-
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +14,6 @@ public class OrganizationServiceImpl implements OrganizationService{
 
 	@Override
 	public Organization createOrganization(Organization organization) {
-		organization.setId(UUID.randomUUID());
 		return organizationRepository.save(organization);
 	}
 

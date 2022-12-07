@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "logging.level[net.talaatharb.patientinformationbackend]",
+    "type": "java.lang.String",
+    "description": "Logging level for the application"
+  },
+  {
+    "name": "logging.level[org.springframework.web]",
+    "type": "java.lang.String",
+    "description": "Logging level for web interactions/requests/responses"
+  }
+]}
