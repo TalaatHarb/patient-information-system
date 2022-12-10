@@ -1,0 +1,7 @@
+{
+  "name": "patient-information-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
