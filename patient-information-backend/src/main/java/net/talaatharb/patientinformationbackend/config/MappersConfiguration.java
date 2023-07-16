@@ -10,7 +10,7 @@ import net.talaatharb.patientinformationbackend.mappers.OrganizationMapper;
 public class MappersConfiguration {
 	
 	@Bean
-	public OrganizationMapper organizationMapper() {
+	OrganizationMapper organizationMapper() {
 		return Mappers.getMapper(OrganizationMapper.class);
 	}
 
